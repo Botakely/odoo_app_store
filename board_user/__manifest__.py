@@ -28,6 +28,7 @@
         'views/assets_backend.xml',
     ],
     'qweb': ['static/src/xml/board.xml'],
+    'images': ['static/description/cover.gif'],
     'price': 27.00,
     'currency': 'EUR',
 }
