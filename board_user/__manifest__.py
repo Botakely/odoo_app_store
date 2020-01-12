@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Dashboard per user",
+
+    'summary': """
+        This module helps you to see other's user dashboard""",
+
+    'description': """
+        Long description of module's purpose
+    """,
+
+    'author': "Samuel RAMAROSELY",
+    'website': "http://www.yourcompany.com",
+
+    'category': 'Uncategorized',
+    'version': '0.1',
+
+    # any module necessary for this one to work correctly
+    'depends': ['base', 'board'],
+
+    # always loaded
+    'data': [
+        'security/board_users.xml',
+        'security/ir.model.access.csv',
+        'views/board_users_view.xml',
+        'views/assets_backend.xml',
+    ],
+    'qweb': ['static/src/xml/board.xml'],
+}
