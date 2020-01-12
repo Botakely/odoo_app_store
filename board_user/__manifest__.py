@@ -9,11 +9,13 @@
         Long description of module's purpose
     """,
 
+    'license': 'AGPL-3',
+
     'author': "Samuel RAMAROSELY",
     'website': "http://www.yourcompany.com",
 
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'board'],
@@ -26,4 +28,6 @@
         'views/assets_backend.xml',
     ],
     'qweb': ['static/src/xml/board.xml'],
+    'price': 27.00,
+    'currency': 'EUR',
 }
