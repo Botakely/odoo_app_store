@@ -30,4 +30,5 @@
     'qweb': [
         "static/src/xml/base.xml",
     ],
+    'images': ['static/description/cover.gif'],
 }
