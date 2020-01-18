@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+
+    <div t-extend="Pager">
+        <t t-jquery=".o_pager_next" t-operation="after">
+            <t t-if="widget.options.single_page_hidden">
+                <button type="button" class="fa fa-step-backward btn btn-secondary o_pager_first" aria-label="First"/>
+                <button type="button" class="fa fa-step-forward btn btn-secondary o_pager_last" aria-label="Last"/>
+            </t>
+        </t>
+    </div>
+
+</templates>
