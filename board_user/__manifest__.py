@@ -9,10 +9,10 @@
         Long description of module's purpose
     """,
 
-    'license': 'OPL-1',
+    'license': 'AGPL-3',
 
     'author': "Samuel RAMAROSELY",
-    'website': "http://www.yourcompany.com",
+    'support': "ryantsoa@gmail.com",
 
     'category': 'Uncategorized',
     'version': '1.0',
@@ -29,6 +29,4 @@
     ],
     'qweb': ['static/src/xml/board.xml'],
     'images': ['static/description/cover.gif'],
-    'price': 17.00,
-    'currency': 'EUR',
 }
