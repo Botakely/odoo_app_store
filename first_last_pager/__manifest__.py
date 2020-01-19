@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Firs/Last Pager",
+    'name': "First/Last Pager",
 
     'summary': """
         This module helps you to browse first or last page of list in form by one click""",
@@ -10,7 +10,7 @@
     """,
 
     'license': 'AGPL-3',
-    'author': "Samuel RAMAROSELY",
+    'author': "Apanda",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing

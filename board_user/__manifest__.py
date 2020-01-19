@@ -11,7 +11,7 @@
 
     'license': 'AGPL-3',
 
-    'author': "Samuel RAMAROSELY",
+    'author': "Apanda",
     'support': "ryantsoa@gmail.com",
 
     'category': 'Uncategorized',
