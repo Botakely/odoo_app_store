@@ -19,6 +19,9 @@
     'data': [
         'views/assets_backend.xml',
     ],
+
+    'license': 'AGPL-3',
+    
     'images': ['static/description/cover.gif'],
 
 }
