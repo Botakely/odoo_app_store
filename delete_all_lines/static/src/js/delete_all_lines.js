@@ -7,8 +7,6 @@ odoo.define('cider_sale', function (require) {
     var Dialog = require('web.Dialog');
     var RelationalFields = require('web.relational_fields');
 
-    var RelationalFields = require('web.relational_fields');
-
     RelationalFields.FieldMany2Many.include({
         _onDeleteRecord: function (ev) {
             ev.stopPropagation();
