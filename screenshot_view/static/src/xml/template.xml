@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="screenshot_view.SystrayItem">
+        <li class="o_screenshot_navbar_item">
+            <a class="screenshot-toggle" href="#" title="Screenshot" data-toggle="dropdown" aria-expanded="false" tabindex="-1" data-display="static">
+                <i class="fa fa-camera"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right o_screenshot_dropdown" role="menu"/>
+        </li>
+    </t>
+    <t t-name="screenshot_view.SystrayItem.Submenu">
+        <a role="menuitem" href="#" data-action="full_screen" class="dropdown-item">Full screen</a>
+        <a role="menuitem" href="#" data-action="without_menubar" class="dropdown-item">Without menu bar</a>
+        <a role="menuitem" href="#" data-action="without_control_pannel" class="dropdown-item">Without control pannel</a>
+    </t>
+</templates>
