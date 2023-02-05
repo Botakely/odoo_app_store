@@ -16,6 +16,7 @@
 
     'license': 'AGPL-3',
     'support': "ryantsoa@gmail.com",
+    'images': ['static/description/cover.gif'],
 
     'depends': ['board'],
     'qweb': ['static/src/xml/board.xml'],
