@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="board_group_view_tree" model="ir.ui.view">
+            <field name="name">board_group_view_tree</field>
+            <field name="model">board.group</field>
+            <field name="arch" type="xml">
+                <tree string="Board" decoration-info="is_my_main_dashboard == True"
+                      decoration-bf="is_my_main_dashboard == True">
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="user_ids" widget="many2many_tags"/>
+                    <field name="act_window_id" invisible="1"/>
+                    <field name="is_main_dashboard" invisible="1"/>
+                    <field name="is_my_main_dashboard" invisible="1"/>
+                    <button name="open_board_group" string="Open dashboard" type="object" class="oe_highlight"/>
+                </tree>
+            </field>
+        </record>
+        <record id="board_group_view_form" model="ir.ui.view">
+            <field name="name">board_group_view_form</field>
+            <field name="model">board.group</field>
+            <field name="arch" type="xml">
+                <form string="Board">
+                    <header>
+                        <button name="set_as_main_dashboard" string="Set as main dashboard" type="object"
+                                attrs="{'invisible': &quot;['|', ('owner_id', '!=', uid), ('is_main_dashboard', '=', True)]&quot;}"/>
+                        <button icon="fa-align-justify" name="create_menu" string="Create a Menu" type="object"
+                                groups="multiple_dashboard.create_dashboards_menu"
+                                attrs="{'invisible': &quot;[('owner_id', '!=', uid)]&quot;}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_board_group" type="object" class="oe_stat_button" icon="fa-table">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Open</span>
+                                    <span class="o_stat_text">dashboard</span>
+                                </div>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="owner_id"/>
+                            <field name="user_ids" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            <field name="is_main_dashboard" invisible="1"/>
+                        </group>
+                        <notebook groups="multiple_dashboard.create_dashboards_menu"
+                                  attrs="{'invisible': &quot;[('owner_id', '!=', uid)]&quot;}">
+                            <page string="Menus">
+                                <field name="menu_ids" readonly="1">
+                                    <tree>
+                                        <field name="complete_name"/>
+                                        <button name="remove_board_menu" string="Remove" type="object"
+                                                confirm="Are you sure to remove this menu?"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="board_group_view_search" model="ir.ui.view">
+            <field name="name">board_group_view_search</field>
+            <field name="model">board.group</field>
+            <field name="arch" type="xml">
+            <search string="Board">
+                <field name="name" select="True"/>
+            </search>
+            </field>
+        </record>
+        <record id="open_main_dashboard_action_server" model="ir.actions.server">
+            <field name="name">Main dashboard</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="multiple_dashboard.model_board_group"/>
+            <field name="binding_model_id" ref="multiple_dashboard.model_board_group"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.action_open_main_dashboard()
+            </field>
+        </record>
+        <record id="board.open_board_my_dash_action" model="ir.actions.act_window">
+            <field name="name">Main dashboard</field>
+        </record>
+        <record id="my_dashboard_group_action" model="ir.actions.act_window">
+            <field name="name">My dashboards</field>
+            <field name="res_model">board.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('owner_id', '=', uid)]</field>
+        </record>
+        <record id="dashboard_shared_with_me_action" model="ir.actions.act_window">
+            <field name="name">Shared with me</field>
+            <field name="res_model">board.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('user_ids', 'in', [uid])]</field>
+            <field name="context">{'create': False, 'edit': False}</field>
+        </record>
+
+        <menuitem id="main_dash_board_menu" name="Main dashboard" parent="base.menu_board_root"
+                  action="multiple_dashboard.open_main_dashboard_action_server" sequence="1"/>
+        <menuitem id="my_dash_board_menu" name="My dashboards" parent="base.menu_board_root"
+                  action="my_dashboard_group_action" sequence="2"/>
+        <menuitem id="dashboard_shared_with_me_menu" name="Shared with me" parent="base.menu_board_root"
+                  action="dashboard_shared_with_me_action" sequence="2"/>
+    </data>
+</odoo>

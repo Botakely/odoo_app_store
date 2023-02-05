@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_multiple_dashboard_board_group,multiple_dashboard.board_group,model_board_group,,1,1,1,1
+access_multiple_dashboard_create_menu_dashboard,multiple_dashboard.create_menu_dashboard,model_create_menu_dashboard,,1,1,1,1
